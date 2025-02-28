@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private StateController _stateController;
     private bool isSliding;
+    private float _startmoveSpeed;
+    private float _startJumpForce;
     private float _horizontalInput, _verticalInput;
     private Vector3 _moveDirection;
     private void Awake()
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
         _rigidbody.freezeRotation = true;
         _rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
         _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        _startmoveSpeed = _moveSpeed;
+        _startJumpForce = _jumpForce;
     }
 
     private void Update()
@@ -154,5 +158,22 @@ public class PlayerController : MonoBehaviour
     {
         return _canJump = true;
     }
-
+    public void SetMovementSpeed(float speed, float duration)
+    {
+        _moveSpeed += speed;
+        Invoke("ResetMovementSpeed", duration);
+    }
+    private void ResetMovementSpeed()
+    {
+        _moveSpeed = _startmoveSpeed;
+    }
+    public void SetJumpForce(float force, float duration)
+    {
+        _jumpForce += force;
+        Invoke("ResetJumpForce", duration);
+    }
+    private void ResetJumpForce()
+    {
+        _jumpForce = _startJumpForce;
+    }
 }
