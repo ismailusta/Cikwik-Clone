@@ -7,6 +7,10 @@ public class Consts
         public const string IS_SLIDING = "IsSliding";
         public const string IS_SLIDING_ACTIVE = "IsSlidingActive";
     }
+    public struct SpatulaAnimations
+    {
+        public const string IS_SPATULA_JUMPING = "IsSpatulaJumping";
+    }
     public struct WheatTags
     {
         public const string GOLD_WHEAT = "GoldWheat";
