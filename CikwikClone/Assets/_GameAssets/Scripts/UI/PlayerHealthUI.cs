@@ -60,10 +60,10 @@ public class PlayerHealthUI : MonoBehaviour
     }
     void AnimateDamageSprite(Image activeImage, RectTransform activeImageTransform)
     {
-        activeImageTransform.DOScale(0f, _scaleDuration).OnComplete(() =>
+        activeImageTransform.DOScale(0f, _scaleDuration).SetEase(Ease.InBack).OnComplete(() =>
         {
             activeImage.sprite = _deadSprite;
-            activeImageTransform.DOScale(1f, _scaleDuration);
+            activeImageTransform.DOScale(1f, _scaleDuration).SetEase(Ease.OutBack);
         });
     }
 
