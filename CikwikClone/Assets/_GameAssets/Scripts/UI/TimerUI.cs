@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimerUI : MonoBehaviour
@@ -16,6 +17,7 @@ public class TimerUI : MonoBehaviour
     private bool _isTimerActive;
     private Tween _timerRotaterAnimation;
     private float _elapsedTime;
+    private string FinalTime;
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class TimerUI : MonoBehaviour
                 ResumeTimer();
                 break;
             case GameState.GameOver:
+                FinishTimer();
                 break;
         }
     }
@@ -53,7 +56,19 @@ public class TimerUI : MonoBehaviour
             _timerRotaterAnimation.Play();
         }
     }
+    private void FinishTimer()
+    {
+        PauseTimer();
+        FinalTime = FormatTime();
+    }
 
+    private string FormatTime()
+    {
+        int minutes = Mathf.FloorToInt(_elapsedTime / 60f);
+        int seconds = Mathf.FloorToInt(_elapsedTime % 60f);
+        return _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+    }
     void TimerRotaterAnimation()
     {
         _timerRotaterAnimation = _timerRotatableTransform.DORotate(new Vector3(0f, 0f, -360f), _timerRotateDuration, RotateMode.FastBeyond360).
@@ -77,5 +92,9 @@ public class TimerUI : MonoBehaviour
         int seconds = Mathf.FloorToInt(_elapsedTime % 60f);
         _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+    }
+    public string GetFinalTime()
+    {
+        return FinalTime;
     }
 }
