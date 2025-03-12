@@ -2,19 +2,30 @@ using UnityEngine;
 
 public class HealtManager : MonoBehaviour
 {
+    public static HealtManager instance;
+
+    [Header("References")]
+    [SerializeField] PlayerHealthUI playerHealthUI;
+
+    [Header("Settings")]
     [SerializeField] private int maxHealth = 3;
+
     private int currentHealth;
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
-
         currentHealth = maxHealth;
     }
-    void Damage(int damageAmount)
+    public void Damage(int damageAmount)
     {
         if (currentHealth > 0)
         {
             currentHealth -= damageAmount;
+            playerHealthUI.AnimationDamage();
             if (currentHealth <= 0)
             {
                 Die();
@@ -23,6 +34,6 @@ public class HealtManager : MonoBehaviour
     }
     void Die()
     {
-        Destroy(gameObject);
+        GameManager.Instance.GetGameOver();
     }
 }

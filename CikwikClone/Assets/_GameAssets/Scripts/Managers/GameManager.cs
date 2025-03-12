@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _maxEgg = 5;
     [SerializeField] private EggCounterUI _eggCounterUI;
     [SerializeField] private WinLoseUI _winLoseUI;
+    [Header("Settings")]
+    [SerializeField] private float _gameOverDelay;
     private GameState _currentGameState;
     private int _currentEgg;
 
@@ -38,6 +41,16 @@ public class GameManager : MonoBehaviour
             _winLoseUI.OnGameWin();
         }
         Debug.Log("Egg Count: " + _currentEgg);
+    }
+    private IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(_gameOverDelay);
+        ChangeGameState(GameState.GameOver);
+        _winLoseUI.OnGameLose();
+    }
+    public void GetGameOver()
+    {
+        StartCoroutine(GameOver());
     }
     public GameState GetCurrentGameState()
     {
