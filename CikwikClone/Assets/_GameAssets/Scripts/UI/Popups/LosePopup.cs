@@ -1,8 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using MaskTransitions;
 public class LosePopup : MonoBehaviour
 {
     [Header("References")]
@@ -19,10 +18,10 @@ public class LosePopup : MonoBehaviour
     }
     private void OnTryAgainButtonClicked()
     {
-        SceneManager.LoadScene(Consts.SceneNames.GAME_SCENE);
+        TransitionManager.Instance.LoadLevel(Consts.SceneNames.GAME_SCENE);
     }
     private void OnMainMenuButtonClicked()
     {
-        SceneManager.LoadScene(Consts.SceneNames.MENU_SCENE);
+        TransitionManager.Instance.LoadLevel(Consts.SceneNames.MENU_SCENE);
     }
 }

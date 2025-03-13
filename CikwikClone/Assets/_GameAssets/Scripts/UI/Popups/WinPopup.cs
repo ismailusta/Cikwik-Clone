@@ -1,7 +1,6 @@
-
+using MaskTransitions;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WinPopup : MonoBehaviour
@@ -21,10 +20,10 @@ public class WinPopup : MonoBehaviour
     }
     private void OneMoreButtonClicked()
     {
-        SceneManager.LoadScene(Consts.SceneNames.GAME_SCENE);
+        TransitionManager.Instance.LoadLevel(Consts.SceneNames.GAME_SCENE);
     }
     private void MainMenuButtonClicked()
     {
-        SceneManager.LoadScene(Consts.SceneNames.MENU_SCENE);
+        TransitionManager.Instance.LoadLevel(Consts.SceneNames.MENU_SCENE);
     }
 }

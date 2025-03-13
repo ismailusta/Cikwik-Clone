@@ -25,18 +25,6 @@ public class PlayerHealthUI : MonoBehaviour
         }
 
     }
-    // For Testing 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            AnimationDamage();
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AllAnimationDamage();
-        }
-    }
     public void AnimationDamage()
     {
         for (int i = 0; i < _healthImages.Length; i++)
