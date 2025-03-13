@@ -17,5 +17,7 @@
 ## 🚀 Kurulum  
 
 1. **Projeyi klonla:**
+   ```sh
+   
    
 ## Bu oyun bir eğitim serisi sonunda klonlarak yapılmıştır.
