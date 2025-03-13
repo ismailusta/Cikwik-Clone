@@ -114,7 +114,6 @@ public class CatController : MonoBehaviour
         }
         if (!destinationSet)
         {
-            Debug.LogWarning("Could not find a valid patrol point");
             _isWaiting = true;
             _timer = _waitTime * 2;
         }
@@ -126,11 +125,5 @@ public class CatController : MonoBehaviour
             return true;
         }
         return false;
-    }
-    private void ODrawGizmosSelected()
-    {
-        Vector3 pos = (_initalPosition != Vector3.zero) ? _initalPosition : transform.position;
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(pos, _patrolRadius);
     }
 }

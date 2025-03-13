@@ -4,6 +4,5 @@ public enum CatState
     Walking,
     Running,
     Attacking,
-
 }
 
