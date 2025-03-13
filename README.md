@@ -19,6 +19,9 @@
 1. **Projeyi klonla:**
    ```sh
    https://github.com/ismailusta/Cikwik-Clone.git
+## 📸 Ekran Görüntüleri
+   Main Menu: ![resim](https://github.com/user-attachments/assets/46680098-81cf-4e28-8ac5-823fb172abad)
+   In Game: ![resim](https://github.com/user-attachments/assets/e312b445-845e-4e10-9981-3ed98e02a50e)
    
 ## Bu oyun bir eğitim serisi sonunda klonlarak yapılmıştır.
-## Link: https://www.youtube.com/watch?v=KZ5V9xIwwcE&t=43272s
+#### Link: https://www.youtube.com/watch?v=KZ5V9xIwwcE&t=43272s
