@@ -21,3 +21,4 @@
    https://github.com/ismailusta/Cikwik-Clone.git
    
 ## Bu oyun bir eğitim serisi sonunda klonlarak yapılmıştır.
+## Link: https://www.youtube.com/watch?v=KZ5V9xIwwcE&t=43272s
