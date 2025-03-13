@@ -18,6 +18,6 @@
 
 1. **Projeyi klonla:**
    ```sh
-   
+   https://github.com/ismailusta/Cikwik-Clone.git
    
 ## Bu oyun bir eğitim serisi sonunda klonlarak yapılmıştır.
