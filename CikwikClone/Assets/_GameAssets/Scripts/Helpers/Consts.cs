@@ -4,6 +4,13 @@ public class Consts
     {
         public const string GAME_SCENE = "GameScene";
     }
+    public struct CatAnimations
+    {
+        public const string IS_IDLING = "IsIdling";
+        public const string IS_WALKING = "IsWalking";
+        public const string IS_RUNNING = "IsRunning";
+        public const string IS_ATTACKING = "IsAttacking";
+    }
     public struct Layers
     {
         public const string GROUND_LAYER = "Ground";

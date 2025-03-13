@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CatController : MonoBehaviour
 {
+    public event Action OnCatCatched;
     [Header("References")]
     [SerializeField] PlayerController _playerController;
     [SerializeField] Transform _playerTransform;
@@ -47,6 +49,7 @@ public class CatController : MonoBehaviour
     }
     private void SetChaseMovement()
     {
+        _isChasing = true;
         _navMeshAgent.speed = _chaseSpeed;
         Vector3 directiontoPlayer = (_playerTransform.position - transform.position).normalized;
         Vector3 offSetPosition = _playerTransform.position - directiontoPlayer * _chaseDistanceThreshold;
@@ -56,9 +59,10 @@ public class CatController : MonoBehaviour
         if (Vector3.Distance(transform.position, _playerTransform.position) <= _chaseDistance && _isChasing)
         {
             // yakaladı
-            Debug.Log("Yakaladi");
-            _isChasing = false;
+            OnCatCatched?.Invoke();
             _catStateController.ChangeState(CatState.Attacking);
+            _isChasing = false;
+
         }
     }
     private void SetPatrolMovement()
@@ -87,7 +91,7 @@ public class CatController : MonoBehaviour
         bool destinationSet = false;
         while (attempts < _maxAttempts && !destinationSet)
         {
-            Vector3 randomDirection = Random.insideUnitSphere * _patrolRadius;
+            Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * _patrolRadius;
             randomDirection += transform.position;
             if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, _patrolRadius, NavMesh.AllAreas))
             {

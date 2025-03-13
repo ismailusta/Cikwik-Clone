@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     public event Action<GameState> OnGameStateChanged;
     [Header("References")]
     [SerializeField] private int _maxEgg = 5;
+    [SerializeField] private CatController _catController;
     [SerializeField] private EggCounterUI _eggCounterUI;
     [SerializeField] private WinLoseUI _winLoseUI;
+
     [Header("Settings")]
     [SerializeField] private float _gameOverDelay;
     private GameState _currentGameState;
@@ -18,7 +20,14 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        _catController.OnCatCatched += OnCatCatched_GameOver;
     }
+
+    private void OnCatCatched_GameOver()
+    {
+        StartCoroutine(GameOver());
+    }
+
     private void OnEnable()
     {
         ChangeGameState(GameState.Play);
