@@ -18,3 +18,4 @@
 
 1. **Projeyi klonla:**
    
+## Bu oyun bir eğitim serisi sonunda klonlarak yapılmıştır.
